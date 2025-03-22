@@ -1,0 +1,31 @@
+Hierarchy
+    Package -> Module
+
+    - a module is an organizational unit in python
+    - a module contains a namespace with arbitrary objects
+    - modules are loaded through importing
+    
+    - a package is a python module that contains submodules recursively or subpackages
+    - a package is a module that has a __path__ attribute
+    - a regular package is a directory containing an __init__.py file
+
+__path__
+
+Module
+    --> https://docs.python.org/3/tutorial/modules.html
+
+
+Examples
+    Consider the follwoing directory layout
+        ```
+        parent/
+            __init__.py
+            one/
+                __init__.py
+            two/
+                __init__.py
+            three/
+                __init__.py
+        ````
+    This example represents 'one regular package' that contains '3 regular subpackages'
+

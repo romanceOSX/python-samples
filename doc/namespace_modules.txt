@@ -1,0 +1,10 @@
+Namespace Packages
+    --> https://peps.python.org/pep-0420/
+    --> https://packaging.python.org/en/latest/guides/packaging-namespace-packages/
+
+Implicit Namespace packages
+    You can ommit the __init__.py in these namespace packages
+
+__path__
+
+
