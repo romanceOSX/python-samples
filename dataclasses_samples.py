@@ -12,6 +12,17 @@ class Foo:
             raise AttributeError(f"{name!r} not found")
         return self._discovery_table[name]
 
+def dump(**kwargs):
+    print(f"The type of {kwargs=} is {type(kwargs)=}")
+
+# --> https://docs.python.org/3/tutorial/controlflow.html#special-parameters
+# *args is a tuple of the other positional arguments
+# **dict is a dictionary
+def foo_arguments(pos1, pos2, *args, **kwargs):
+    print(f"{pos1=}, {type(pos1)=}")
+    print(f"{args=}, {type(args)=}")
+    print(f"{kwargs=}, {type(kwargs)=}")
+
 def _dict_comprehensions():
     print("Testing dict comprehensions")
     list_of_tuples = [
@@ -25,6 +36,12 @@ def _dict_comprehensions():
     list_of_tuples_swapped = {hello: letter for letter, hello in list_of_tuples}
 
     print(f"Printing dict: {list_of_tuples_swapped}")
+
+    packet_arguments = {
+        "a": 32,
+    }
+
+    foo_arguments(pos1=1, pos2=2)
 
 def main() -> None:
     a = {}
