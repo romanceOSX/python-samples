@@ -29,6 +29,15 @@ def foo_arguments(pos1, pos2, *args, **kwargs):
     print(*args, sep="\n")
     print(*args, **kwargs)
 
+    # this is just unpacking a sequence btw
+    a = [1, 2, 3, 4, 5]
+    b = [*a]
+    print(f"{b=}")
+
+    # same case for dictionaries
+    custom_dict = {**kwargs}
+    print(f"{custom_dict=}")
+
 def _dict_comprehensions():
     print("Testing dict comprehensions")
     list_of_tuples = [
@@ -69,3 +78,4 @@ class DiscoveryEntry:
 
 if __name__ == "__main__":
     main()
+
