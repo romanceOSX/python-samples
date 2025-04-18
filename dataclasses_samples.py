@@ -23,6 +23,12 @@ def foo_arguments(pos1, pos2, *args, **kwargs):
     print(f"{args=}, {type(args)=}")
     print(f"{kwargs=}, {type(kwargs)=}")
 
+    # unpacking arguments
+    # --> https://docs.python.org/3/tutorial/controlflow.html#special-parameters
+    # same as packing but reversed
+    print(*args, sep="\n")
+    print(*args, **kwargs)
+
 def _dict_comprehensions():
     print("Testing dict comprehensions")
     list_of_tuples = [
@@ -41,7 +47,7 @@ def _dict_comprehensions():
         "a": 32,
     }
 
-    foo_arguments(pos1=1, pos2=2)
+    foo_arguments(1, 2, 3, 4, 5, 6, 7, sep="♥️")
 
 def main() -> None:
     a = {}
