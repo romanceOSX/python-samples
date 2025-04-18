@@ -58,7 +58,22 @@ def _dict_comprehensions():
 
     foo_arguments(1, 2, 3, 4, 5, 6, 7, sep="♥️")
 
-def main() -> None:
+# examples on matching dictionaries
+def _match_dict():
+    my_dict = {
+        'type': 'book',
+        'authors': [
+            'William',
+            'Cornellious'
+        ],
+        'author': "mcKensey"
+    }
+
+    match my_dict:
+        case {'type': 'book', 'authors': name}:
+            print(f'{name=}, {type(name)=}')
+
+def _get_attribute():
     a = {}
     a["hello"] = []
 
@@ -68,13 +83,43 @@ def main() -> None:
     a = getattr(f, "hello", "hello")
     print(f"value of {a=}")
 
-    _dict_comprehensions()
-
 @dataclass
 class DiscoveryEntry:
     """Class for keeping discovery entries!"""
-    name: str
-    ip: str
+    name: str = None
+    ip: str = None
+
+class Table:
+    def __init__(self) -> None:
+        self._table: list[DiscoveryEntry] = [
+            DiscoveryEntry("hello", "172.16.0.2")
+        ]
+
+    def append(self, entry: DiscoveryEntry):
+        self._table.append(entry)
+
+    def get_entry(self, ip: str):
+        entry = {entry.ip: entry for entry in self._table}
+        return entry.get(ip, None)
+    
+    def __repr__(self) -> str:
+        return f"{self._table!r}"
+
+def _dataclass_test():
+    table = Table()
+    a = table.get_entry("172.16.0.2")
+    print(f"This is the table after gett-ign {table=}")
+    print(f"This is the value of {a=}")
+    entry = DiscoveryEntry()
+    print(f"This is my {entry=}")
+    # indexing strategies
+    pass
+
+def main() -> None:
+    #_get_attribute()
+    #_dict_comprehensions()
+    #_match_dict()
+    _dataclass_test()
 
 if __name__ == "__main__":
     main()
