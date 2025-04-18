@@ -12,14 +12,31 @@ class Foo:
             raise AttributeError(f"{name!r} not found")
         return self._discovery_table[name]
 
+def _dict_comprehensions():
+    print("Testing dict comprehensions")
+    list_of_tuples = [
+        ('a', 'Hello'),
+        ('b', 'Hola'),
+        ('c', '你好'),
+    ]
+
+    # swapping the key and values
+    # same as list comprehensions, <functor> for <value(s)> in <iterable>
+    list_of_tuples_swapped = {hello: letter for letter, hello in list_of_tuples}
+
+    print(f"Printing dict: {list_of_tuples_swapped}")
+
 def main() -> None:
     a = {}
     a["hello"] = []
 
     f = Foo()
     # getattr works even on user-types
+    # object, attribute, default value
     a = getattr(f, "hello", "hello")
     print(f"value of {a=}")
+
+    _dict_comprehensions()
 
 @dataclass
 class DiscoveryEntry:
