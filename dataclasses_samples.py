@@ -98,7 +98,7 @@ class Table:
     def append(self, entry: DiscoveryEntry):
         self._table.append(entry)
 
-    def get_entry(self, ip: str):
+    def get_entry(self, ip: str) -> DiscoveryEntry | None:
         entry = {entry.ip: entry for entry in self._table}
         return entry.get(ip, None)
     
@@ -108,6 +108,10 @@ class Table:
 def _dataclass_test():
     table = Table()
     a = table.get_entry("172.16.0.2")
+
+    if a is not None:
+        a.ip = "12341413"
+
     print(f"This is the table after gett-ign {table=}")
     print(f"This is the value of {a=}")
     entry = DiscoveryEntry()
