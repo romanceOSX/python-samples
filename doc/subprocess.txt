@@ -1,0 +1,9 @@
+--> https://docs.python.org/3/library/subprocess.html
+
+subprocess management
+    It intents to replace older modules, specifically:
+        - os.system
+        - os.spawn*
+
+
+
