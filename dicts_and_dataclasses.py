@@ -9,11 +9,11 @@ def foo():
 
 # we can also take a more functional approach and declare it as an upvalue inside a decorator
 def count_calls(f):
-    call_counter = 0
+    count_calls.call_counter = 0
     def wrap():
         f()
         count_calls.call_counter += 1
-        print(f"{f.__name__} called {call_counter} times")
+        print(f"{f.__name__} called {count_calls.call_counter} times")
     return wrap
 
 @count_calls
