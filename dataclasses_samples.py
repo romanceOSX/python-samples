@@ -83,6 +83,8 @@ def _get_attribute():
     a = getattr(f, "hello", "hello")
     print(f"value of {a=}")
 
+# the recomended use of dataclasses is just to use them as an intermediary
+# form and then convert them into a dictionary when manipulating
 @dataclass
 class DiscoveryEntry:
     """Class for keeping discovery entries!"""
@@ -101,6 +103,9 @@ class Table:
     def get_entry(self, ip: str) -> DiscoveryEntry | None:
         entry = {entry.ip: entry for entry in self._table}
         return entry.get(ip, None)
+    
+    def update(self, ip: str, **kwargs):
+        self._table.append(DiscoveryEntry(ip=ip, **kwargs))
     
     def __repr__(self) -> str:
         return f"{self._table!r}"
