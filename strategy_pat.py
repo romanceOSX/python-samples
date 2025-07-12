@@ -1,5 +1,25 @@
 from abc import ABC, abstractmethod
 
+# ELEMENTS
+# - strategy interface
+# - concrete strategies
+# - context
+# - client
+
+# DOUBTS
+#
+# Where should we introduce the arguments the strategy needs to operate on?
+#   Normally these are introduced when calling the context calls the strategy itself
+#   this because we don't want to couple the context with the data
+#   Yes Sometimes this coupling is preffered
+#
+# Why not just skip the context?
+#   The context's role is doing the 'How', while the client's role is declaring
+#   the 'What', if we ever need to change the strategie's signature, the client
+#   won't suffer any changes, also common business logic such as validating data
+#   sanity checks or switching strategies are runtime, is better done through a
+#   context, this is the end goal of separation of concerns
+
 # small strategy pattern code
 
 class SortAlgo(ABC):
