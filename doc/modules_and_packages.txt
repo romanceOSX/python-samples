@@ -49,3 +49,10 @@ Use cases on how a package is consumed
 PYTHONPATH
     This is the equivalent of Lua's package.path
 
+sys.path
+    --> https://docs.python.org/3/library/sys.html#sys.path
+    sys.path stores the search paths for imports
+
+import system
+    --> https://docs.python.org/3/reference/import.html
+
