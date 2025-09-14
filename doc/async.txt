@@ -1,0 +1,16 @@
+Intro
+    --> https://docs.python.org/3/howto/a-conceptual-overview-of-asyncio.html#a-conceptual-overview-of-asyncio
+
+    async def
+        This creates a coroutine function, it is a function that returns a coroutine object
+
+    Coroutines
+        These are implementing leveraging the 'yield' capabilities (the stop the function and resume
+        later thing)
+
+    Tasks
+        Tasks are coroutines (the object, not coroutine functions)
+        Coroutines tied to an event loop
+        "asyncio.create_task()"
+
+
