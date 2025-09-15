@@ -12,5 +12,12 @@ Intro
         Tasks are coroutines (the object, not coroutine functions)
         Coroutines tied to an event loop
         "asyncio.create_task()"
+    
+    Event loop
+        There is one event loop per thread, creating a task automatically attaches it to the
+        current event loop
+
+    Future
+        async.Task subclasses async.future
 
 
